@@ -1,11 +1,13 @@
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 from ultralytics import YOLO
 import cv2
 
 import util
-from sort.sort import *
+from sort import Sort
 from util import get_car, read_license_plate, write_csv
-
 
 results = {}
 
