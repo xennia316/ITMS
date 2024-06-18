@@ -1,13 +1,10 @@
-import ssl
-
-ssl._create_default_https_context = ssl._create_unverified_context
-
 from ultralytics import YOLO
 import cv2
 
 import util
-from sort import Sort
+from sort import *
 from util import get_car, read_license_plate, write_csv
+
 
 results = {}
 
@@ -15,7 +12,7 @@ mot_tracker = Sort()
 
 # load models
 coco_model = YOLO('yolov8n.pt')
-license_plate_detector = YOLO('./models/license_plate_detector.pt')
+license_plate_detector = YOLO('./models/weights/best.pt')
 
 # load video
 cap = cv2.VideoCapture('./sample.mp4')
